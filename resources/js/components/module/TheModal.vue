@@ -1,5 +1,6 @@
 <template>
-  <div>
+  
+  <form action="/insertRanking" method="POST" id="finish-form">
     <div id="modal-result" tabindex="-1" class="modal fade" aria-hidden="true" role="dialog">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -11,6 +12,9 @@
           </div>
           <div class="modal-body text-center">
             <pie-chart :chartData="chartData" ref="chart"></pie-chart>
+             <div>正解率 {{ correctPercentageObject['correctScore'] * 10 }} %</div>
+            <input type="hidden" name="correctRatio" :value="correctPercentageObject['correctScore'] * 10" />
+            <input type="hidden" name="_token" :value="csrf" />
             <div>正解率 {{ correctPercentageObject['correctScore'] * 10 }} %</div>
             <input type="hidden" name="correctRatio" />
           </div>
@@ -20,7 +24,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </form>
 </template>
 
 <script>
@@ -46,6 +50,9 @@ export default {
         labels: ["正解", "不正解"],
         datasets: []
       },
+      csrf: document
+        .querySelector('meta[name="csrf-token"]')
+        .getAttribute("content")
     };
   },
   methods: {
@@ -62,7 +69,7 @@ export default {
       this.$refs.chart.renderPieChart();
     },
     quizFinish() {
-      location.href = "/";
+      document.querySelector("#finish-form").submit();
     }
   }
 };
