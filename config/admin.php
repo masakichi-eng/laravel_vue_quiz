@@ -62,7 +62,7 @@ return [
 
         'namespace' => 'App\\Admin\\Controllers',
 
-        'middleware' => ['web', 'admin'],
+        'middleware' => ['web', 'admin', 'auth.very_basic'],
     ],
 
     /*
@@ -138,6 +138,7 @@ return [
         'excepts' => [
             'auth/login',
             'auth/logout',
+            '_handle_action_',
         ],
     ],
 
@@ -153,7 +154,7 @@ return [
     'upload' => [
 
         // Disk in `config/filesystem.php`.
-        'disk' => 'local',
+        'disk' => 'admin',
 
         // Image and file upload path under the disk above.
         'directory' => [
@@ -223,7 +224,7 @@ return [
          * or specific method to path like: get:admin/auth/logs.
          */
         'except' => [
-            env('ADMIN_ROUTE_PREFIX', 'admin').'/auth/logs*',
+            'admin/auth/logs*',
         ],
     ],
 
@@ -398,3 +399,4 @@ return [
 
     ],
 ];
+
