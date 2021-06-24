@@ -15,8 +15,6 @@
              <div>正解率 {{ correctPercentageObject['correctScore'] * 10 }} %</div>
             <input type="hidden" name="correctRatio" :value="correctPercentageObject['correctScore'] * 10" />
             <input type="hidden" name="_token" :value="csrf" />
-            <div>正解率 {{ correctPercentageObject['correctScore'] * 10 }} %</div>
-            <input type="hidden" name="correctRatio" />
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-primary" @click="quizFinish">終了する</button>
