@@ -154,8 +154,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -39437,20 +39435,6 @@ var render = function() {
                   _c("input", {
                     attrs: { type: "hidden", name: "_token" },
                     domProps: { value: _vm.csrf }
-                  }),
-                  _vm._v(" "),
-                  _c("div", [
-                    _vm._v(
-                      "正解率 " +
-                        _vm._s(
-                          _vm.correctPercentageObject["correctScore"] * 10
-                        ) +
-                        " %"
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    attrs: { type: "hidden", name: "correctRatio" }
                   })
                 ],
                 1
